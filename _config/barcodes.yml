@@ -1,0 +1,18 @@
+---
+Name: silvershop-barcodes
+Only:
+  moduleexists: silvershop/core
+After:
+  - silvershop-extensions
+  - silvershop-product-identity
+---
+# The template accessors ($BarcodeSVG / $Code128SVG / $QrCodeSVG) are only useful on a SilverShop buyable,
+# so the extension is applied only when silvershop/core is installed (the `Only.moduleexists` guard above).
+# Without core the BarcodeGenerator service is still fully usable on any code string. The GTIN itself is read
+# guarded from silvershop/product-identity, so core-without-product-identity degrades to "no code, no barcode".
+SilverShop\Page\Product:
+  extensions:
+    - SilverShop\Barcodes\Extension\BarcodeExtension
+SilverShop\Model\Variation\Variation:
+  extensions:
+    - SilverShop\Barcodes\Extension\BarcodeExtension
