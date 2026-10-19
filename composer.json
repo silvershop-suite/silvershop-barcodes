@@ -1,6 +1,6 @@
 {
-    "name": "silvershop/barcodes",
-    "description": "Barcode image generation for SilverShop (CMS 6): render EAN-13, Code128 and QR codes to inline SVG or a PNG data-URI, from any code string or — guarded — from a product's GTIN stored by silvershop/product-identity. For packing slips, invoices, shipping labels, PDFs and POS/scanning. Generation only; the codes live in product-identity.",
+    "name": "silvershop-suite/barcodes",
+    "description": "Barcode image generation for SilverShop (CMS 6): render EAN-13, Code128 and QR codes to inline SVG or a PNG data-URI, from any code string or — guarded — from a product's GTIN stored by silvershop-suite/product-identity. For packing slips, invoices, shipping labels, PDFs and POS/scanning. Generation only; the codes live in product-identity.",
     "type": "silverstripe-vendormodule",
     "keywords": ["silverstripe", "silvershop", "ecommerce", "barcode", "ean13", "code128", "qr", "gtin", "label", "svg"],
     "license": "BSD-3-Clause",
@@ -28,8 +28,8 @@
         "squizlabs/php_codesniffer": "^3.0"
     },
     "suggest": {
-        "silvershop/product-identity": "Auto-exposes a product's GTIN as a barcode on Product and Variation (the $BarcodeSVG / $Code128SVG / $QrCodeSVG template accessors); without it, barcodes still renders any code string you hand the BarcodeGenerator service.",
-        "silvershop/core": "Required by silvershop/product-identity; needed for the Product/Variation template accessors (the generator service itself is standalone).",
+        "silvershop-suite/product-identity": "Auto-exposes a product's GTIN as a barcode on Product and Variation (the $BarcodeSVG / $Code128SVG / $QrCodeSVG template accessors); without it, barcodes still renders any code string you hand the BarcodeGenerator service.",
+        "silvershop/core": "Required by silvershop-suite/product-identity; needed for the Product/Variation template accessors (the generator service itself is standalone).",
         "ext-gd": "Enables PNG output (picqer PNG + endroid PngWriter); SVG output needs no extension."
     },
     "scripts": {

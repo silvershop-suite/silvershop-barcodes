@@ -4,10 +4,10 @@
 
 Barcode **image generation** for [SilverShop](https://github.com/silvershop/silvershop) on Silverstripe CMS 6.
 Render **EAN-13**, **Code128** and **QR** codes to inline **SVG** (the default) or a **PNG data-URI** — from any
-code string, or, guarded, from the GTIN that [`silvershop/product-identity`](https://github.com/silvershop/silvershop-product-identity)
+code string, or, guarded, from the GTIN that [`silvershop-suite/product-identity`](https://github.com/silvershop/silvershop-product-identity)
 stores on your products. For packing slips, invoices, shipping labels, PDFs and POS / scanning.
 
-This module is **generation only**: it never stores or validates codes — that is `silvershop/product-identity`'s
+This module is **generation only**: it never stores or validates codes — that is `silvershop-suite/product-identity`'s
 job. Because of that it is also useful **standalone**: hand the `BarcodeGenerator` service any string and get a
 barcode back, with or without SilverShop installed.
 
@@ -18,13 +18,13 @@ barcode back, with or without SilverShop installed.
 - `picqer/php-barcode-generator` ^3 (EAN-13 / Code128), `endroid/qr-code` ^5 (QR)
 - `ext-gd` — only for PNG output; SVG needs no extension
 
-Optional (soft dependency): `silvershop/product-identity` — auto-exposes a product's GTIN as a barcode on
+Optional (soft dependency): `silvershop-suite/product-identity` — auto-exposes a product's GTIN as a barcode on
 `Product` and `Variation`.
 
 ## Installation
 
 ```bash
-composer require silvershop/barcodes
+composer require silvershop-suite/barcodes
 ```
 
 Then run `dev/build?flush=all`.
@@ -76,9 +76,9 @@ when a code cannot be *drawn* as the requested symbology (empty code, a non-nume
 unknown format, or a failure inside the underlying library). This is a rendering guard, not GS1 validation — it
 simply refuses to emit a misleading barcode (e.g. picqer would otherwise silently zero-pad a too-short EAN-13).
 
-## Template accessors (with `silvershop/product-identity`)
+## Template accessors (with `silvershop-suite/product-identity`)
 
-When `silvershop/product-identity` is installed, `Product` and `Variation` gain barcode accessors that read the
+When `silvershop-suite/product-identity` is installed, `Product` and `Variation` gain barcode accessors that read the
 resolved GTIN (variant → product fallback included) **guarded** — so nothing breaks when a code or the module is
 absent:
 
